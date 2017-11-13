@@ -1,0 +1,10 @@
+3.998: [GC (Allocation Failure) [PSYoungGen: 96256K->9265K(112128K)] 96256K->9354K(369152K), 0.0119133 secs] [Times: user=0.04 sys=0.01, real=0.01 secs] 
+7.003: [GC (Allocation Failure) [PSYoungGen: 105521K->8732K(112128K)] 105610K->25212K(369152K), 0.0205096 secs] [Times: user=0.15 sys=0.03, real=0.02 secs] 
+7.119: [GC (Metadata GC Threshold) [PSYoungGen: 40195K->5029K(112128K)] 56675K->37901K(369152K), 0.8475400 secs] [Times: user=0.18 sys=0.00, real=0.85 secs] 
+7.967: [Full GC (Metadata GC Threshold) [PSYoungGen: 5029K->0K(112128K)] [ParOldGen: 32872K->37575K(160256K)] 37901K->37575K(272384K), [Metaspace: 20956K->20956K(1067008K)], 0.0369266 secs] [Times: user=0.18 sys=0.05, real=0.04 secs] 
+18.841: [GC (Allocation Failure) [PSYoungGen: 96256K->6178K(205312K)] 133831K->60145K(365568K), 0.1234146 secs] [Times: user=0.11 sys=0.03, real=0.13 secs] 
+30.076: [GC (Metadata GC Threshold) [PSYoungGen: 179141K->9370K(206848K)] 233108K->112497K(367104K), 0.8973678 secs] [Times: user=0.18 sys=0.05, real=0.90 secs] 
+30.974: [Full GC (Metadata GC Threshold) [PSYoungGen: 9370K->0K(206848K)] [ParOldGen: 103127K->111142K(274944K)] 112497K->111142K(481792K), [Metaspace: 34617K->34548K(1079296K)], 1.9890913 secs] [Times: user=0.86 sys=0.02, real=1.99 secs] 
+43.053: [GC (Allocation Failure) [PSYoungGen: 190976K->11252K(327680K)] 302118K->124282K(602624K), 0.9129269 secs] [Times: user=0.06 sys=0.04, real=0.91 secs] 
+Heap
+ PSYoungGen      total 327680K, used 57162K [0x00000000eab
