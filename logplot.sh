@@ -21,13 +21,13 @@ argc = len(argvs)
 
 fig = plt.figure()
 ax = fig.add_subplot( 1, 1, 1 )
-ax.set_title( 'memory_usage' )
+ax.set_title( 'cpu_usage' )
 
 
 timestamp = []
 memory_usage = []
 
-f = open(os.path.dirname(os.path.abspath(__file__))+'/resource_log/memory_log')
+f = open(os.path.dirname(os.path.abspath(__file__))+'/resource_log/cpu_log')
 
 line = f.readline()
 
