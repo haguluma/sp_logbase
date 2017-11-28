@@ -20,40 +20,91 @@ argc = len(argvs)
 
 
 fig = plt.figure()
-ax = fig.add_subplot( 1, 1, 1 )
-ax.set_title( 'memory_usage(MB/s)' )
-
 
 timestamp = []
 memory_usage = []
 
-f = open(os.path.dirname(os.path.abspath(__file__))+'/Cglog/memory/huscs008/memory_log')
+memory_ax = fig.add_subplot( 2, 1, 1 )
+cpu_ax = fig.add_subplot( 2, 1, 2 )
 
-line = f.readline()
+memory_ax.set_title( 'memory_usage(MB/s)' )
+cpu_ax.set_title( 'cpu_usage(ns/s)' )
 
-while line:
-    pattern = r"^(\d+):(\d+)$"
-    matchOB = re.findall(pattern,line)
-    timestamp.append( int(matchOB[0][0])/1000000000 )
-    memory_usage.append( int(matchOB[0][1])/1000000 )
-    line = f.readline()
-
-f.close
-
-init_time = timestamp[0]
-
-i = 0;
-for time in timestamp:
-    timestamp[i] = time - init_time
-    i = i + 1
+nodes = ['huscs008','huscs009','huscs10']
 
 
-color = 'b'
+for node in nodes:
 
-print(timestamp)
-print(memory_usage)
+    if node == 'huscs008':
+        color = 'r'
+    elif node == 'huscs009':
+        color = 'b'
+    elif node == 'huscs10':
+        color = 'g'
+    else:
+        color = 'b'
 
-ax.plot(timestamp,memory_usage,color) #,linestyle='dashed')
+
+    memory_f = open(os.path.dirname(os.path.abspath(__file__))+'/Cglogs/memory/'+node+'/memory_log')
+    line = memory_f.readline()
+
+    timestamp = []
+    memory_usage = []
+
+    while line:
+        pattern = r"^(\d+):(\d+)$"
+        matchOB = re.findall(pattern,line)
+        timestamp.append( int(matchOB[0][0])/1000000000 )
+        memory_usage.append( int(matchOB[0][1])/1000000 )
+        line = memory_f.readline()
+
+    memory_f.close
+
+    init_time = timestamp[0]
+
+    i = 0;
+    for time in timestamp:
+        timestamp[i] = time - init_time
+        i = i + 1
+
+
+    memory_ax.plot(timestamp,memory_usage,color) 
+    
+
+
+# -------------cpu plot-----------------
+
+
+    cpu_f = open(os.path.dirname(os.path.abspath(__file__))+'/Cglogs/cpu/'+node+'/cpu_log')
+    line = cpu_f.readline()
+
+    timestamp = []
+    cpu_usage = []
+
+    while line:
+        pattern = r"^(\d+):(\d+)$"
+        matchOB = re.findall(pattern,line)
+        timestamp.append( int(matchOB[0][0])/1000000000 )
+        cpu_usage.append( int(matchOB[0][1])/1000000000 )
+        line = cpu_f.readline()
+
+    cpu_f.close
+
+    init_time = timestamp[0]
+
+    i = 0;
+    for time in timestamp:
+        timestamp[i] = time - init_time
+        i = i + 1
+
+
+    cpu_ax.plot(timestamp,cpu_usage,color)
+
+
+
+
+
+
 
 plt.show()
 
